@@ -1,4 +1,4 @@
 import React from 'react'
 
 
-export default PolishSort
+// export default PolishSort
