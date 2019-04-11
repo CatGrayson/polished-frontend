@@ -1,20 +1,31 @@
 import React, { Component } from 'react'
 import PolishCard from './PolishCard'
 import PolishFavorites from './PolishFavorites'
+import { Card } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
+
 
 class PolishContainer extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            polishes: []
-        }
-    }
+    
 
 
     render() {
         return(
             <div>
-                <p></p>
+                <Grid celled>
+                    <Grid.Row columns={2}>
+                    <Grid.Column width={10}>   
+                        <Card.Group itemsPerRow={3}>
+                        {this.props.polishes.map(polish => <PolishCard polish={polish} /> )} 
+                        </Card.Group>
+                        </Grid.Column>
+
+                        <Grid.Column floated='left' width={5}>
+                        <PolishFavorites />
+                        </Grid.Column>
+
+                    </Grid.Row> 
+                 </Grid>
             </div>
         )
     }

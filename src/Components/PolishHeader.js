@@ -1,17 +1,19 @@
-import React, { Component } from 'react'
-import PolishLogin from './PolishLogin'
-import PolishSort from './PolishSort'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Header, Segment } from 'semantic-ui-react'
+// import PolishLogin from './PolishLogin.js';
+// import PolishSort from './PolishSort.js';
 
 
-class PolishHeader extends Component {
-    render() {
-        return(
-            <div>
-                <h1 className="text-center">POLISHED</h1>
-            </div>
-        )
+const PolishHeader = (props) => {
+    return(
+        <div className="header">
+        <Segment>
+         <Header as='h1' textAlign='center'>
+             P O L I S H E D
+            </Header>
+        </Segment>
+        </div>
+    )
     }
-}
-
-
 export default PolishHeader
