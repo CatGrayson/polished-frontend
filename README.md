@@ -1,3 +1,22 @@
+POLISHED - An app to color your world.
+
+User Stories - CRUD
+    A user should be able to 
+        CREATE
+        1. Create an account
+        2. Create a favorites list
+        READ
+        1. View all nail poilishes
+        UPDATE
+        1. Like a nail polish
+        2. Update favorites list
+        DELETE
+        1. Delete nail polish from favorites list
+
+RELATIONSHIP - A user has many nail polishes
+
+
+React General Package ReadMe
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
