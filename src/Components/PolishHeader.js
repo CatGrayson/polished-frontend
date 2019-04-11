@@ -1,6 +1,6 @@
-<<<<<<< HEAD
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Header, Segment } from 'semantic-ui-react'
 // import PolishLogin from './PolishLogin.js';
 // import PolishSort from './PolishSort.js';
 
@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 const PolishHeader = (props) => {
     return(
         <div className="header">
-        {/* <Link to="/users" className="header"> */}
-        
-            <h1>P O L I S H E D</h1>
-    
-        {/* </Link> */}
+        <Segment>
+         <Header as='h1' textAlign='center'>
+             P O L I S H E D
+            </Header>
+        </Segment>
         </div>
     )
     }

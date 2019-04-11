@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card } from 'semantic-ui-react'
 
-const PolishCard = () => {
+const PolishCard = (props) => {
+
 
     return (
         <div className="card">
@@ -9,7 +10,7 @@ const PolishCard = () => {
            <Card color='pink'>
                {/* <Image src='' /> */}
                <Card.Content>
-                   <Card.Header>Polish Name</Card.Header>
+                   <Card.Header>{props.polish.brand}</Card.Header>
                    <Card.Meta>Other stuff</Card.Meta>
                    <Card.Description>Polish Info</Card.Description>
                </Card.Content>
