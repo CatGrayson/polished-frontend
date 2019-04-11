@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PolishHeader from './Components/PolishHeader.js'
-import PolishContainer from './Components/PolishContainer.js'
+import PolishHeader from './Components/PolishHeader'
+import PolishContainer from './Components/PolishContainer'
 
 class App extends Component {
-
-  state = {
-    polishContainer: []
-  }
 
   render() {
     return (
