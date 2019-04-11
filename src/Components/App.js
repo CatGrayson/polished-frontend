@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import PolishHeader from './PolishHeader.js'
+import PolishContainer from './PolishContainer.js'
 
 class App extends Component {
   render() {
