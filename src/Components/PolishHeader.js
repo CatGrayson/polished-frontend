@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import PolishLogin from './PolishLogin.js';
@@ -14,16 +15,5 @@ const PolishHeader = (props) => {
         {/* </Link> */}
         </div>
     )
-}
-
-// class PolishHeader extends Component {
-//     render() {
-//     return (
-//         <div>
-//             <h1>POLISHED</h1>
-//         </div>
-//     )}
-// }
-
-
+    }
 export default PolishHeader
