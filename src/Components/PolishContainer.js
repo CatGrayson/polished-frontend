@@ -9,7 +9,9 @@ import { Switch, Route } from 'react-router-dom'
 
 class PolishContainer extends Component {
     
+    toggleCard = polish => {
 
+    }
 
     render() {
         return(

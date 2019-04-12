@@ -7,7 +7,7 @@ const PolishCard = (props) => {
     return (
         <div className="card">
         <Card.Group>
-           <Card color='pink'>
+           <Card>
                {/* <Image src='' /> */}
                <Card.Content>
                    <Card.Header>{props.polish.brand}</Card.Header>
@@ -18,7 +18,7 @@ const PolishCard = (props) => {
            </Card.Group>
             {/* <h2>{props.polish.name}</h2> */}
             {/* <img className="polish-img" src{props.polish.image} /> */}
-
+            
         </div>
     )
 }
