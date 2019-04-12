@@ -3,15 +3,22 @@ import PolishCard from './PolishCard'
 import PolishFavorites from './PolishFavorites'
 import { Card } from 'semantic-ui-react'
 import { Grid } from 'semantic-ui-react'
+import PolishLogin from './PolishLogin'
+import { Switch, Route } from 'react-router-dom'
 
 
-class PolishContainer extends React.Component {
+class PolishContainer extends Component {
     
 
 
     render() {
         return(
             <div>
+
+
+
+
+
                 <Grid celled>
                     <Grid.Row columns={2}>
                     <Grid.Column width={10}>   
