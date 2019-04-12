@@ -9,10 +9,12 @@ import { Switch, Route } from 'react-router-dom'
 
 class PolishContainer extends Component {
     
+
     constructor(props){
         super(props)
         console.log("props polish from constructor", props)
-    }
+
+    
 
     render() {
         return(
@@ -21,7 +23,7 @@ class PolishContainer extends Component {
                     <Grid.Row columns={2}>
                     <Grid.Column width={10}>   
                         <Card.Group itemsPerRow={3}>
-                        {this.props.random}
+                        
                         {console.log("polish props", this.props.polishes)}
                         {this.props.polishes.map(polish => <PolishCard polish={polish} /> )} 
                         </Card.Group>

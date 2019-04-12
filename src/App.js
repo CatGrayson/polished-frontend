@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import PolishHeader from './Components/PolishHeader';
 import PolishContainer from './Components/PolishContainer';
 import { Route, Switch } from 'react-router-dom';
 import PolishLogin from './Components/PolishLogin';
 
+
 class App extends Component {
 
   state = {
     polishes: [1,2,3],
     favorites: [],
-    users: [],
-    random: "random"
+    users: []
+    
   }
 
   componentDidMount(){
@@ -20,10 +22,22 @@ class App extends Component {
   }
 
   fetchPolishes = () => {
-    fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish`)
+    console.log("fetch")
+    fetch("https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish")
     .then(resp => resp.json())
-    .then(data => this.setState({polishes:data, random:"NOT RANDOM"}))
+
+    .then(data => this.setState({polishes : data}))
+
   }
+
+
+    getPolishColours = () => {
+      this.state.polishes.map((polish) => {
+        polish.product_colors.forEach((product_colors) => {
+          return product_colors.colour_name
+        }  
+      )}
+    )}
 
   fetchUsers = () => {
     fetch(`http://localhost:3000/users`)
@@ -32,6 +46,7 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
       <PolishHeader />
