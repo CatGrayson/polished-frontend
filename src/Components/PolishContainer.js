@@ -9,22 +9,22 @@ import { Switch, Route } from 'react-router-dom'
 
 class PolishContainer extends Component {
     
-    toggleCard = polish => {
 
-    }
+    constructor(props){
+        super(props)
+        console.log("props polish from constructor", props)
+
+    
 
     render() {
         return(
             <div>
-
-
-
-
-
                 <Grid celled>
                     <Grid.Row columns={2}>
                     <Grid.Column width={10}>   
                         <Card.Group itemsPerRow={3}>
+                        
+                        {console.log("polish props", this.props.polishes)}
                         {this.props.polishes.map(polish => <PolishCard polish={polish} /> )} 
                         </Card.Group>
                         </Grid.Column>
