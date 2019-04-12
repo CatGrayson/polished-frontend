@@ -21,7 +21,9 @@ class PolishContainer extends React.Component {
                         </Grid.Column>
 
                         <Grid.Column floated='left' width={5}>
+                        
                         <PolishFavorites />
+                        
                         </Grid.Column>
 
                     </Grid.Row> 
