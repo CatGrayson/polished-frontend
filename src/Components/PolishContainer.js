@@ -7,7 +7,9 @@ import { Grid } from 'semantic-ui-react'
 
 class PolishContainer extends React.Component {
     
+    toggleCard = polish => {
 
+    }
 
     render() {
         return(

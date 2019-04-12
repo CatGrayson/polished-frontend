@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import PolishHeader from './Components/PolishHeader'
 import PolishContainer from './Components/PolishContainer'
+
 
 class App extends Component {
 
@@ -16,12 +17,22 @@ class App extends Component {
   }
 
   fetchPolishes = () => {
-    fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish`)
+    console.log("fetch")
+    fetch("https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish")
     .then(resp => resp.json())
-    .then(polishes => this.setState({polishes}))
+    .then(data => this.setState({polishes : data}))
   }
 
+    getPolishColours = () => {
+      this.state.polishes.map((polish) => {
+        polish.product_colors.forEach((product_colors) => {
+          return product_colors.colour_name
+        }  
+      )}
+    )}
+
   render() {
+
     return (
       <div className="App">
       <PolishHeader />
