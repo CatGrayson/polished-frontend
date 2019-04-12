@@ -8,20 +8,21 @@ import PolishLogin from './Components/PolishLogin';
 class App extends Component {
 
   state = {
-    polishes: [],
+    polishes: [1,2,3],
     favorites: [],
-    users: []
+    users: [],
+    random: "random"
   }
 
   componentDidMount(){
     this.fetchPolishes()
-    this.fetchUsers()
+    //this.fetchUsers()
   }
 
   fetchPolishes = () => {
     fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish`)
     .then(resp => resp.json())
-    .then(polishes => this.setState({polishes}))
+    .then(data => this.setState({polishes:data, random:"NOT RANDOM"}))
   }
 
   fetchUsers = () => {
@@ -36,7 +37,8 @@ class App extends Component {
       <PolishHeader />
       <Switch>
       <Route path="/login" component={PolishLogin} users={this.state.users} />
-      <Route path='/' component={PolishContainer}  polishes={this.state.polishes} />
+      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.state.polishes}/>} />
+
       </Switch>
       </div>
     );
