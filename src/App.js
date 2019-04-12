@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
+
 import './App.css';
-import PolishHeader from './Components/PolishHeader'
-import PolishContainer from './Components/PolishContainer'
+import PolishHeader from './Components/PolishHeader';
+import PolishContainer from './Components/PolishContainer';
+import { Route, Switch } from 'react-router-dom';
+import PolishLogin from './Components/PolishLogin';
 
 
 class App extends Component {
 
   state = {
     polishes: [],
-    favorites: []
+    favorites: [],
+    users: []
   }
 
   componentDidMount(){
     this.fetchPolishes()
+    this.fetchUsers()
   }
 
   fetchPolishes = () => {
@@ -23,6 +27,7 @@ class App extends Component {
     .then(data => this.setState({polishes : data}))
   }
 
+
     getPolishColours = () => {
       this.state.polishes.map((polish) => {
         polish.product_colors.forEach((product_colors) => {
@@ -31,12 +36,21 @@ class App extends Component {
       )}
     )}
 
+  fetchUsers = () => {
+    fetch(`http://localhost:3000/users`)
+    .then(resp => resp.json())
+    .then(users => this.setState({users}))
+  }
+
   render() {
 
     return (
       <div className="App">
       <PolishHeader />
-      <PolishContainer polishes={this.state.polishes} />
+      <Switch>
+      <Route path="/login" component={PolishLogin} users={this.state.users} />
+      <Route path='/' component={PolishContainer}  polishes={this.state.polishes} />
+      </Switch>
       </div>
     );
   }

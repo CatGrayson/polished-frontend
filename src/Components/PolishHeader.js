@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Header, Segment } from 'semantic-ui-react'
 // import PolishLogin from './PolishLogin.js';
 // import PolishSort from './PolishSort.js';
