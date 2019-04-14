@@ -15,6 +15,7 @@ class PolishContainer extends Component {
         console.log("props polish from constructor", props)
     }
 
+
     render() {
         return(
             <div>
@@ -22,9 +23,10 @@ class PolishContainer extends Component {
                     <Grid.Row columns={2}>
                     <Grid.Column width={10}>   
                         <Card.Group itemsPerRow={3}>
-                        
+
                         {console.log("polish props", this.props.polishes)}
-                        {this.props.polishes.map(polish => <PolishCard polish={polish} /> )} 
+                        {this.props.polishes.map(polish => <PolishCard polish={polish} /> )}
+                        {/* toggleButton={this.toggleButton} */}
                         </Card.Group>
                         </Grid.Column>
 
