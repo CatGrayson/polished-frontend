@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import PolishHeader from './Components/PolishHeader';
 import PolishContainer from './Components/PolishContainer';
 import { Route, Switch } from 'react-router-dom';
 import PolishLogin from './Components/PolishLogin';
-
 
 class App extends Component {
 
@@ -29,7 +27,6 @@ class App extends Component {
     .then(data => this.setState({polishes : data}))
 
   }
-
 
     getPolishColours = () => {
       this.state.polishes.map((polish) => {

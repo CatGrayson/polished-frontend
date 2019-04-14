@@ -3,21 +3,19 @@ import { Card } from 'semantic-ui-react'
 
 const PolishCard = (props) => {
 
-
     return (
         <div className="card">
         <Card.Group>
-           <Card>
-               {/* <Image src='' /> */}
+           <Card color="pink">
                <Card.Content>
                    <Card.Header>{props.polish.brand}</Card.Header>
-                   <Card.Meta>Other stuff</Card.Meta>
-                   <Card.Description>Polish Info</Card.Description>
+                   <Card.Meta classname="image_link">
+                       <img src={props.polish.image_link} />
+                   </Card.Meta>
+                   <Card.Description classname="colour_name">{props.polish.name}</Card.Description>
                </Card.Content>
            </Card>
            </Card.Group>
-            {/* <h2>{props.polish.name}</h2> */}
-            {/* <img className="polish-img" src{props.polish.image} /> */}
             
         </div>
     )
