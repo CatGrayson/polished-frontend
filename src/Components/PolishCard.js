@@ -1,12 +1,12 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+import { Card, Button, Icon, Label } from 'semantic-ui-react'
 
-const PolishCard = (props) => {
+const PolishCard = (props, {polishes, toggleButton}) => {
 
     return (
         <div className="card">
         <Card.Group>
-           <Card color="pink">
+           <Card color="black">
                <Card.Content>
                    <Card.Header>{props.polish.brand}</Card.Header>
                    <Card.Meta classname="image_link">
@@ -14,6 +14,18 @@ const PolishCard = (props) => {
                    </Card.Meta>
                    <Card.Description classname="colour_name">{props.polish.name}</Card.Description>
                </Card.Content>
+               <Button as='div' labelPosition='left'>
+                    <Button color='pink'>
+                        <Icon name='heart'>
+                        </Icon>
+                    </Button>
+                    <Label as='a' basic color='pink' pointing='left'>
+                        0
+                    </Label>
+               </Button>
+               <Button onClick={() => toggleButton(polishes)} basic color='teal'>
+                Click for Details
+               </Button>
            </Card>
            </Card.Group>
             
