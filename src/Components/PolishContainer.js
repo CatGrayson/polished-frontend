@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
-import PolishCard from './PolishCard'
+import PolishCardViews from './PolishCardViews'
 import PolishFavorites from './PolishFavorites'
-import { Card } from 'semantic-ui-react'
-import { Grid } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 import PolishLogin from './PolishLogin'
 import { Switch, Route } from 'react-router-dom'
 
 
 class PolishContainer extends Component {
     
-
     constructor(props){
         super(props)
         console.log("props polish from constructor", props)
     }
 
-
+    getPolishCards = () => {
+       return this.props.polishes.map((polish) => <PolishCardViews polish={polish} /> )
+    }
     render() {
         return(
             <div>
@@ -23,10 +23,7 @@ class PolishContainer extends Component {
                     <Grid.Row columns={2}>
                     <Grid.Column width={10}>   
                         <Card.Group itemsPerRow={3}>
-
-                        {console.log("polish props", this.props.polishes)}
-                        {this.props.polishes.map(polish => <PolishCard polish={polish} /> )}
-                        {/* toggleButton={this.toggleButton} */}
+                        {this.getPolishCards()}
                         </Card.Group>
                         </Grid.Column>
 
@@ -44,7 +41,4 @@ class PolishContainer extends Component {
     }
 
 }
-
-
-
 export default PolishContainer

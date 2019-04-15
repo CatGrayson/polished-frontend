@@ -43,29 +43,15 @@ class App extends Component {
     .then(users => this.setState({users}))
   }
 
-  // toggleButton = polishes => {
-  //   const pol = this.state.polishContainer
-  //   const p = pol.indexOf(polishes)
-  //   this.setState({
-  //     polishContainer: [
-  //       ...pol.slice(0, p),
-  //       {...polishes, isClicked: !polishes.isClicked },
-  //       ...pol.slice(p + 1)
-  //     ]
-  //   })
-  // }
-
   render() {
 
     return (
       <div className="App">
       <PolishHeader />
-      {/* <PolishContainer toggleButton={this.toggleButton} /> */}
-
       <Switch>
       <Route path="/login" component={PolishLogin} users={this.state.users} />
       <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.state.polishes}/>} />
-
+      
       </Switch>
       </div>
     );
