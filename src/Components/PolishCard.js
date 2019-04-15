@@ -3,6 +3,8 @@ import { Card, Button, Icon, Label } from 'semantic-ui-react'
 
 const PolishCard = (props, {polishes, toggleButton}) => {
 
+    
+
     return (
         <div className="card">
         <Card.Group>
@@ -15,13 +17,13 @@ const PolishCard = (props, {polishes, toggleButton}) => {
                    <Card.Description classname="colour_name">{props.polish.name}</Card.Description>
                    <Card.Description classname="colour_name">${props.polish.price}</Card.Description>
                </Card.Content>
-               <Button as='div' labelPosition='left'>
-                    <Button color='pink'>
+               <Button as='div' labelPosition='left' onClick={()=>props.handleLike(props.polish)} >
+                    <Button color='pink' size='mini'>
                         <Icon name='heart'>
                         </Icon>
                     </Button>
                     <Label as='a' basic color='pink' pointing='left'>
-                        0
+                        {props.polish.rating === null ? 0 : props.polish.rating}
                     </Label>
                </Button>
                <Button onClick={() => toggleButton(polishes)} basic color='teal'>

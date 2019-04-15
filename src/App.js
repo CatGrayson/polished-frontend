@@ -59,6 +59,12 @@ class App extends Component {
     return filteredPolishes
   }
 
+  handleLike = (polish) => {
+    let newLike = this.state.polishes.map(statePolish => statePolish === polish ? {...polish, rating: ++polish.rating}: statePolish)
+    this.setState({
+      polishes: newLike
+    })
+  }
 
   render() {
 
@@ -69,7 +75,7 @@ class App extends Component {
       <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} placeholder="Search by Brand"/>
       <Switch>
       <Route path="/login" component={PolishLogin} users={this.state.users} />
-      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()}/>} />
+      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()} handleLike={this.handleLike} />} />
 
       </Switch>
       </div>
