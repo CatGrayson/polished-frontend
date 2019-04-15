@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Card, Button, Icon, Label } from 'semantic-ui-react'
 import ReactCardFlip from 'react-card-flip'
 
-class PolishCardViews extends React.Component {
+class PolishCardViews extends Component {
     
     constructor(props){
         super(props)
@@ -21,65 +21,73 @@ class PolishCardViews extends React.Component {
 
         const PolishCardFront = props => {
             return (
-            <div classname="card">
-            <Card color="black">
+            <div>
+            
+                <Card color="pink">
                 <Card.Content>
                     <Card.Header>{this.props.polish.brand}</Card.Header>
-                        <Card.Meta classname="image_link">
-                           <img src={this.props.polish.image_link} />
+                        <Card.Meta className="image_link">
+                           <img src={this.props.polish.api_featured_image} />
                         </Card.Meta>
-                            <br/>
-                    <Card.Description classname="colour_name">{this.props.polish.name}</Card.Description>
-                </Card.Content>
-                    <Button as='div' labelPosition='left'>
-                            <Button color='pink'>
-                                <Icon name='heart'>
-                                </Icon>
-                            </Button>
+                    <Card.Description className="colour_name">{this.props.polish.name}</Card.Description>
+                    <Card.Description className="colour_name">${this.props.polish.price}</Card.Description>
+                    
+                    <Button as='div' labelPosition='left' onClick={()=> this.props.handleLike(this.props.polish)} >
+                    
+                    <Button color='pink' size='mini'><Icon name='heart'></Icon></Button>
                             <Label as='a' basic color='pink' pointing='left'>
-                                0
+                            {props.polish.rating === null ? 0 : props.polish.rating}
                             </Label>
                             </Button>
                             <Button onClick={this.handleClick} basic color='teal'>
                                 Click for Details
                             </Button>
+                            </Card.Content>
             </Card>
+          
             </div>
             )
         }
 
         const PolishCardBack = props => {
             return (
-                <div classname="card">
-            <Card color="black">
+                <div>
+                    {/* <Card.Group> */}
+                    <Card color="pink">
                     <Card.Content>
                         <Card.Header>Polish Details</Card.Header>
                         <br/>
-                        <Card.Description classname="description">
+                        <Card.Description className="description">
                             {this.props.polish.description}
                         </Card.Description>
-                    </Card.Content>
-                     <Button color='red'>Add to Favs</Button>
+                   
+                     <Button onClick={() => this.props.handleAdd(this.props.polish) && this.handleClick} basic color='purple'>Add to Favorites</Button>
+                     </Card.Content>
                 </Card>
+                {/* </Card.Group> */}
                 </div>
             )
         }
-        // console.log("what is the props?",this.props)
+      
         return (
-            <div className="card">
-            <Card.Group>
-                   <br/>
+            <div>
+           
+        
+                  
                 <ReactCardFlip isFlipped={this.state.isFlipped}>
+               
+                
                    <PolishCardFront key="front"polish= {this.props.polish}>
-                        <Button onClick={this.handleClick} basic color='teal'>
-                    Click for Details
-                        </Button>
+                       
                    </PolishCardFront>
                     <PolishCardBack key="back">
-                        <Button onClick={this.handleClick}>Click to Close</Button>
+                        
                     </PolishCardBack>
-                </ReactCardFlip>
-               </Card.Group>
+                    
+                    
+                 </ReactCardFlip>
+           
+               
                 
             </div>
         )
