@@ -26,7 +26,7 @@ class PolishContainer extends Component {
                         <Card.Group itemsPerRow={3}>
 
                         {console.log("polish props", this.props.polishes)}
-                        {this.props.polishes.map(polish => <PolishCard polish={polish} handleLike={this.props.handleLike} /> )}
+                        {this.props.polishes.map(polish => <PolishCardViews polish={polish} handleLike={this.props.handleLike} /> )}
                         {/* toggleButton={this.toggleButton} */}
                         {this.getPolishCards()}
                         </Card.Group>
