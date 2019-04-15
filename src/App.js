@@ -75,12 +75,7 @@ class App extends Component {
       <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} placeholder="Search by Brand"/>
       <Switch>
       <Route path="/login" component={PolishLogin} users={this.state.users} />
-      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()} handleLike={this.handleLike} />} />
-
-      <Switch>
-      <Route path="/login" component={PolishLogin} users={this.state.users} />
-      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.state.polishes}/>} />
-      
+      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()} handleLike={this.handleLike} />} />      
       </Switch>
       </div>
     );
