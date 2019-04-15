@@ -27,16 +27,14 @@ class PolishCardViews extends Component {
                 <Card.Content>
                     <Card.Header>{this.props.polish.brand}</Card.Header>
                         <Card.Meta className="image_link">
-                           <img src={this.props.polish.image_link} />
+                           <img src={this.props.polish.api_featured_image} />
                         </Card.Meta>
                     <Card.Description className="colour_name">{this.props.polish.name}</Card.Description>
                     <Card.Description className="colour_name">${this.props.polish.price}</Card.Description>
-                
-                <Button as='div' labelPosition='left' onClick={()=> this.props.handleLike(this.props.polish)} >
-                    <Button color='pink' size='mini'>
-                                <Icon name='heart'>
-                                </Icon>
-                            </Button>
+                    
+                    <Button as='div' labelPosition='left' onClick={()=> this.props.handleLike(this.props.polish)} >
+                    
+                    <Button color='pink' size='mini'><Icon name='heart'></Icon></Button>
                             <Label as='a' basic color='pink' pointing='left'>
                             {props.polish.rating === null ? 0 : props.polish.rating}
                             </Label>
@@ -63,7 +61,7 @@ class PolishCardViews extends Component {
                             {this.props.polish.description}
                         </Card.Description>
                    
-                     <Button color='red'>Add to Favs</Button>
+                     <Button onClick={() => this.props.handleAdd(this.props.polish) && this.handleClick} basic color='purple'>Add to Favorites</Button>
                      </Card.Content>
                 </Card>
                 {/* </Card.Group> */}

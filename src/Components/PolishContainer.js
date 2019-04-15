@@ -14,7 +14,7 @@ class PolishContainer extends Component {
     }
 
     getPolishCards = () => {
-       return this.props.polishes.map((polish) => <PolishCardViews polish={polish} handleLike={this.props.handleLike} /> )
+       return this.props.polishes.map((polish) => <PolishCardViews polish={polish} handleLike={this.props.handleLike} handleAdd={this.props.handleAdd} /> )
     }
     render() {
         return(
@@ -31,8 +31,9 @@ class PolishContainer extends Component {
                         </Grid.Column>
 
                         <Grid.Column floated='right' width={5}>
+                       <PolishFavorites favorites={this.props.favorites}/>
+                       
                         
-                        <PolishFavorites />
                         
                         </Grid.Column>
 
