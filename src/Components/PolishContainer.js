@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PolishCard from './PolishCard'
+import PolishCardViews from './PolishCardViews'
 import PolishFavorites from './PolishFavorites'
 import { Card, Grid } from 'semantic-ui-react'
 import PolishLogin from './PolishLogin'
@@ -8,13 +8,14 @@ import { Switch, Route } from 'react-router-dom'
 
 class PolishContainer extends Component {
     
-
     constructor(props){
         super(props)
         console.log("props polish from constructor", props)
     }
 
-
+    getPolishCards = () => {
+       return this.props.polishes.map((polish) => <PolishCardViews polish={polish} /> )
+    }
     render() {
         return(
             <div>
@@ -27,6 +28,7 @@ class PolishContainer extends Component {
                         {console.log("polish props", this.props.polishes)}
                         {this.props.polishes.map(polish => <PolishCard polish={polish} handleLike={this.props.handleLike} /> )}
                         {/* toggleButton={this.toggleButton} */}
+                        {this.getPolishCards()}
                         </Card.Group>
                         </Grid.Column>
 
@@ -44,7 +46,4 @@ class PolishContainer extends Component {
     }
 
 }
-
-
-
 export default PolishContainer

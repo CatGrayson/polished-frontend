@@ -77,6 +77,10 @@ class App extends Component {
       <Route path="/login" component={PolishLogin} users={this.state.users} />
       <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()} handleLike={this.handleLike} />} />
 
+      <Switch>
+      <Route path="/login" component={PolishLogin} users={this.state.users} />
+      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.state.polishes}/>} />
+      
       </Switch>
       </div>
     );
