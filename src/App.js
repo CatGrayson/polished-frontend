@@ -4,15 +4,17 @@ import PolishHeader from './Components/PolishHeader';
 import PolishContainer from './Components/PolishContainer';
 import { Route, Switch } from 'react-router-dom';
 import PolishLogin from './Components/PolishLogin';
-import { SSL_OP_CIPHER_SERVER_PREFERENCE } from 'constants';
+import { Search } from 'semantic-ui-react'
+import _ from 'lodash'
+
 
 class App extends Component {
 
   state = {
-    polishes: [1,2,3],
+    polishes: [],
     favorites: [],
-    users: []
-    
+    users: [],
+    search: ''
   }
 
   componentDidMount(){
@@ -43,28 +45,31 @@ class App extends Component {
     .then(users => this.setState({users}))
   }
 
-  // toggleButton = polishes => {
-  //   const pol = this.state.polishContainer
-  //   const p = pol.indexOf(polishes)
-  //   this.setState({
-  //     polishContainer: [
-  //       ...pol.slice(0, p),
-  //       {...polishes, isClicked: !polishes.isClicked },
-  //       ...pol.slice(p + 1)
-  //     ]
-  //   })
-  // }
+  handleSearch = (e, {value}) => {
+    this.setState({
+      search: value
+    })
+  }
+
+  filteredPolishes(){
+    let searched = this.state.search
+    let filteredPolishes = this.state.polishes.filter(polish => {
+      return polish.brand.toLowerCase().includes(searched)
+    })
+    return filteredPolishes
+  }
+
 
   render() {
 
     return (
       <div className="App">
       <PolishHeader />
-      {/* <PolishContainer toggleButton={this.toggleButton} /> */}
-
+      <br/>
+      <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} placeholder="Search by Brand"/>
       <Switch>
       <Route path="/login" component={PolishLogin} users={this.state.users} />
-      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.state.polishes}/>} />
+      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()}/>} />
 
       </Switch>
       </div>

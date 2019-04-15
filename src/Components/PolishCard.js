@@ -13,6 +13,7 @@ const PolishCard = (props, {polishes, toggleButton}) => {
                        <img src={props.polish.image_link} />
                    </Card.Meta>
                    <Card.Description classname="colour_name">{props.polish.name}</Card.Description>
+                   <Card.Description classname="colour_name">${props.polish.price}</Card.Description>
                </Card.Content>
                <Button as='div' labelPosition='left'>
                     <Button color='pink'>
