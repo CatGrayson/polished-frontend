@@ -26,8 +26,7 @@ class App extends Component {
    
     fetch("https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish")
     .then(resp => resp.json())
-
-    .then(data => this.setState({polishes : data}))
+    .then(data => this.setState({ polishes : data }))
 
   }
 
@@ -72,6 +71,7 @@ class App extends Component {
     const image = polish.image_link
     const rating = polish.rating
     const price = polish.price
+
 
     const newPolish = {
       name: name,
