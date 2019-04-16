@@ -22,7 +22,6 @@ class PolishCardViews extends Component {
         const PolishCardFront = props => {
             return (
             <div>
-            
                 <Card color="pink">
                 <Card.Content>
                     <Card.Header>{this.props.polish.brand}</Card.Header>
@@ -38,13 +37,12 @@ class PolishCardViews extends Component {
                             <Label as='a' basic color='pink' pointing='left'>
                             {props.polish.rating === null ? 0 : props.polish.rating}
                             </Label>
-                            </Button>
+                    </Button>
                             <Button onClick={this.handleClick} basic color='teal'>
                                 Click for Details
                             </Button>
-                            </Card.Content>
-            </Card>
-          
+                </Card.Content>
+                </Card>
             </div>
             )
         }
@@ -52,46 +50,34 @@ class PolishCardViews extends Component {
         const PolishCardBack = props => {
             return (
                 <div>
-                    {/* <Card.Group> */}
-                    <Card color="pink">
+                    <Card color="pink" onClick={this.handleClick}>
                     <Card.Content>
                         <Card.Header>Polish Details</Card.Header>
                         <br/>
                         <Card.Description className="description">
                             {this.props.polish.description}
                         </Card.Description>
-                   
-                     <Button onClick={() => this.props.handleAdd(this.props.polish) && this.handleClick} basic color='purple'>Add to Favorites</Button>
+
+                     {/* <Button onClick={() => this.props.handleAdd(this.props.polish)} basic color='purple'>Add to Favorites</Button> */}
                      </Card.Content>
                 </Card>
-                {/* </Card.Group> */}
                 </div>
             )
         }
       
         return (
-            <div>
-           
-        
-                  
+            <div>         
                 <ReactCardFlip isFlipped={this.state.isFlipped}>
-               
-                
-                   <PolishCardFront key="front"polish= {this.props.polish}>
-                       
-                   </PolishCardFront>
+                    <PolishCardFront key="front" polish= {this.props.polish}>
+                    </PolishCardFront>
                     <PolishCardBack key="back">
-                        
                     </PolishCardBack>
-                    
-                    
                  </ReactCardFlip>
-           
-               
-                
             </div>
         )
     }    
 }
 
 export default PolishCardViews
+
+// {this.state.isFlipped ? false : true}

@@ -1,34 +1,34 @@
-// import React from 'react'
-// import Select from 'react-select'
+import React from 'react'
+import Select from 'react-select'
 
-// const options = [
-//     { value: 'Sort by Price', label: 'High to Low' },
-//     { value: 'Sort by Price', label: 'Low to High' }
-// ]
+const options = [
+    { value: 'Sort by Price', label: 'High to Low' },
+    { value: 'Sort by Price', label: 'Low to High' }
+]
 
-// class PolishSort extends React.Component {
+class PolishSort extends React.Component {
 
-//     state = {
-//         selectedOption: null,
-//     }
+    state = {
+        selectedOption: null,
+    }
 
-//     handleChange = (selectedOption) => {
-//         this.setState({ selectedOption })
-//     }
+    handleChange = (selectedOption) => {
+        this.setState({ selectedOption })
+    }
 
-//     render() {
-//         const { selectedOption } = this.state
+    render() {
+        const { selectedOption } = this.state
 
-//         return(
-//             <div class='react-select-container'>
-//             <Select
-//                 value={selectedOption}
-//                 onChange={this.handleChange}
-//                 options={options}
-//             />
-//             </div>
-//         )
-//     }
-// }
+        return(
+            <div class='react-select-container'>
+            <Select
+                value={selectedOption}
+                onChange={this.handleChange}
+                options={options}
+            />
+            </div>
+        )
+    }
+}
 
-// export default PolishSort
+export default PolishSort
