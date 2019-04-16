@@ -26,7 +26,7 @@ class PolishContainer extends Component {
                         <Card.Group itemsPerRow={3}>
 
                         {this.getPolishCards()}
-
+ 
                         </Card.Group>
                         </Grid.Column>
 
