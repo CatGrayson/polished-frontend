@@ -18,7 +18,7 @@ class PolishCardViews extends Component {
     }
 
     render() {
-
+        
         const PolishCardFront = props => {
             return (
             <div>
@@ -44,7 +44,7 @@ class PolishCardViews extends Component {
                 </Card.Content>
                 </Card>
             </div>
-            )
+            )   
         }
 
         const PolishCardBack = props => {
@@ -58,7 +58,9 @@ class PolishCardViews extends Component {
                             {this.props.polish.description}
                         </Card.Description>
 
-                     {/* <Button onClick={() => this.props.handleAdd(this.props.polish)} basic color='purple'>Add to Favorites</Button> */}
+                   
+                     <Button onClick={() => this.props.handleAdd(this.props.polish)} basic color='purple'>Add to Favorites</Button>
+
                      </Card.Content>
                 </Card>
                 </div>

@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   fetchPolishes = () => {
-    console.log("fetch")
+   
     fetch("https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish")
     .then(resp => resp.json())
     .then(data => this.setState({ polishes : data }))
@@ -106,7 +106,8 @@ class App extends Component {
       <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} placeholder="Search by Brand"/>
       <Switch>
       <Route path="/login" component={PolishLogin} users={this.state.users} />
-      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()} handleLike={this.handleLike} handleAdd={this.handleAdd} favorites={this.state.favorites} />} />      
+      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()} 
+        handleLike={this.handleLike} handleAdd={this.handleAdd} favorites={this.state.favorites} />} />      
       </Switch>
       </div>
     );

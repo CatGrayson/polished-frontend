@@ -31,7 +31,7 @@ class PolishContainer extends Component {
                         
 
                         {this.getPolishCards()}
-
+ 
                         </Card.Group>
                         </Grid.Column>
 
