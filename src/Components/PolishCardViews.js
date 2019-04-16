@@ -4,9 +4,9 @@ import ReactCardFlip from 'react-card-flip'
 
 class PolishCardViews extends Component {
     
-    constructor(props){
-        super(props)
-    }
+    // constructor(props){
+    //     super(props)
+    // }
     state = {
         isFlipped: false
     }

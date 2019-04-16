@@ -67,9 +67,34 @@ class App extends Component {
   }
 
   handleAdd = (polish) => {
-    this.setState({
-      favorites: [...this.state.favorites, polish]
+    const name = polish.name
+    const brand = polish.brand
+    const image = polish.image_link
+    const rating = polish.rating
+    const price = polish.price
+
+    const newPolish = {
+      name: name,
+      brand_name: brand,
+      image_link: image,
+      rating: rating,
+      price: price
+    }
+
+    fetch('http://localhost:3000/nail_polishes', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body:JSON.stringify(newPolish)
+      }).then(resp =>{
+      if(resp.ok){
+        this.setState({
+          favorites: [...this.state.favorites, polish]
+        })
+      }
     })
+    
   }
 
   render() {
