@@ -72,16 +72,16 @@ class App extends Component {
     const rating = polish.rating
     const price = polish.price
 
-     const newPolish = {
+
+    const newPolish = {
       name: name,
       brand_name: brand,
       image_link: image,
       rating: rating,
       price: price
     }
-  
 
-  fetch ('http://localhost:3000/nail_polishes', {
+    fetch('http://localhost:3000/nail_polishes', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
@@ -93,7 +93,8 @@ class App extends Component {
           favorites: [...this.state.favorites, polish]
         })
       }
-    })	   
+    })
+    
   }
 
   render() {
