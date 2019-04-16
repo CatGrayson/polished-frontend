@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   fetchPolishes = () => {
-    console.log("fetch")
+   
     fetch("https://makeup-api.herokuapp.com/api/v1/products.json?product_type=nail_polish")
     .then(resp => resp.json())
 
