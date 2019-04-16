@@ -23,12 +23,7 @@ class PolishContainer extends Component {
                 <Grid celled>
                     <Grid.Row columns={2}>
                     <Grid.Column width={11}>   
-                        <Card.Group itemsPerRow={3}>
-
-
-                        {console.log("polish props", this.props.polishes)}
-                        {this.props.polishes.map(polish => <PolishCardViews polish={polish} handleLike={this.props.handleLike} /> )}
-                        
+                        <Card.Group itemsPerRow={3}>                        
 
                         {this.getPolishCards()}
  
