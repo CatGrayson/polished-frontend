@@ -6,7 +6,7 @@ class PolishFavorites extends Component {
         return(
             <div>
                 <h2>Faves</h2>
-                {this.props.favorites.map(polish => <FavoriteCard polish={polish}/>)}
+                {this.props.favorites.map(polish => <FavoriteCard polish={polish} handleRemove={this.props.handleRemove} />)}
             </div>
         )
     }

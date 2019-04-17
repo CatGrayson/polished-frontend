@@ -23,15 +23,16 @@ class PolishContainer extends Component {
                 <Grid celled>
                     <Grid.Row columns={2}>
                     <Grid.Column width={11}>   
-                        <Card.Group itemsPerRow={3}>                        
 
+                        <Card.Group itemsPerRow={3}>
+          
                         {this.getPolishCards()}
  
                         </Card.Group>
                         </Grid.Column>
 
                         <Grid.Column floated='right' width={5}>
-                       <PolishFavorites favorites={this.props.favorites}/>
+                       <PolishFavorites favorites={this.props.favorites} handleRemove={this.props.handleRemove} />
                        
                         
                         

@@ -97,6 +97,14 @@ class App extends Component {
     
   }
 
+  handleRemove = (polish) => {
+    // let removedFave = this.state.polishes.filter(p => p == polish)
+    const i = this.state.polishes.indexOf(polish) === 0
+    this.setState({
+      favorites: [...this.state.favorites.slice(0,i)]
+    })
+  }
+
   render() {
 
     return (
@@ -106,8 +114,11 @@ class App extends Component {
       <Search onSearchChange={_.debounce(this.handleSearch, 500)} showNoResults={false} placeholder="Search by Brand"/>
       <Switch>
       <Route path="/login" component={PolishLogin} users={this.state.users} />
-      <Route path='/' render={(props)=> <PolishContainer {...props} polishes = {this.filteredPolishes()} 
-        handleLike={this.handleLike} handleAdd={this.handleAdd} favorites={this.state.favorites} />} />      
+      <Route path='/' render={(props)=> <PolishContainer {...props} 
+        polishes = {this.filteredPolishes()} 
+        handleLike={this.handleLike} handleAdd={this.handleAdd} 
+        handleRemove={this.handleRemove}
+        favorites={this.state.favorites} />} />      
       </Switch>
       </div>
     );
