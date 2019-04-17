@@ -25,18 +25,13 @@ class PolishContainer extends Component {
                     <Grid.Column width={11}>   
                         <Card.Group itemsPerRow={3}>
 
-
-                        {console.log("polish props", this.props.polishes)}
-                        {this.props.polishes.map(polish => <PolishCardViews polish={polish} handleLike={this.props.handleLike} /> )}
-                        
-
                         {this.getPolishCards()}
  
                         </Card.Group>
                         </Grid.Column>
 
                         <Grid.Column floated='right' width={5}>
-                       <PolishFavorites favorites={this.props.favorites}/>
+                       <PolishFavorites favorites={this.props.favorites} handleRemove={this.props.handleRemove} />
                        
                         
                         
