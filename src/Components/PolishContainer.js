@@ -23,8 +23,9 @@ class PolishContainer extends Component {
                 <Grid celled>
                     <Grid.Row columns={2}>
                     <Grid.Column width={11}>   
-                        <Card.Group itemsPerRow={3}>
 
+                        <Card.Group itemsPerRow={3}>
+          
                         {this.getPolishCards()}
  
                         </Card.Group>
